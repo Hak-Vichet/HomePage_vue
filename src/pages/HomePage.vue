@@ -1,6 +1,5 @@
 <template>
-  <nav-bar />
-  <div class="grid md:grid-cols-3 gap-x-4 mt-5 gap-y-3">
+  <div class="grid md:grid-cols-3 gap-x-4 mt-5 md:gap-y-4 gap-y-5">
     <div class="grid md:col-span-2">
       <img class="" src="/image-web-3-desktop.jpg" alt="image" />
       <div class="grid md:grid-cols-2 mt-3">
@@ -56,17 +55,24 @@
             Will hydrogen-fueled cars ever catch up to EVs?
           </p>
         </div>
-
       </div>
     </div>
   </div>
 
   <!-- list of items  -->
-  <top-items />
+  <top-items :topItems="topItems" />
+
+
 </template>
 
 <script setup>
-import NavBar from "../components/NavBar.vue";
 import TopItems from "../components/TopItems.vue";
+import { ref } from "vue";
+
+const topItems = ref([
+    { id: 1, src: '/image-retro-pcs.jpg', name: 'Reviving Redtro PCs', description: 'What happend when the old PCs are givens modern upgrade?'},
+    { id: 2, src: '/image-top-laptops.jpg', name: 'Top 10 laptop of 2022', description: 'Our best pick for various needs and debugs.'},
+    { id: 3, src: '/image-gaming-growth.jpg', name: 'The growing of gamming', description: 'How the pendamice has sparked fresh opportunities?'}
+])
 
 </script>

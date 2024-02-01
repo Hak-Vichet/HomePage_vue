@@ -1,5 +1,7 @@
 <template>
   <nav class="">
+    <!-- The black blur  -->
+
     <!-- Desktop Navigation -->
     <div class="hidden md:flex items-center justify-between">
       <svg
@@ -22,11 +24,13 @@
         </g>
       </svg>
       <div>
-        <a href="#" class="text-gray-600 mr-5">Home</a>
-        <a href="#" class="text-gray-600 mr-5">New</a>
-        <a href="#" class="text-gray-600 mr-5">Popular</a>
-        <a href="#" class="text-gray-600 mr-5">Trading</a>
-        <a href="#" class="text-gray-600">Catagories</a>
+        <router-link to="/" class="text-gray-600 mr-5">Home</router-link>
+        <router-link to="/about" href="about" class="text-gray-600 mr-5"
+          >About</router-link
+        >
+        <a class="text-gray-600 mr-5">Popular</a>
+        <a class="text-gray-600 mr-5">Trading</a>
+        <a class="text-gray-600">Catagories</a>
       </div>
     </div>
 
@@ -50,32 +54,28 @@
       </button>
       <div
         v-if="isMobileMenuOpen"
-        class="popup mt-2 absolute bg-white pr-10 pb-2"
-        ref="popup"
+        class="absolute z-10 bg-white h-full w-2/3 ml-0"
       >
-        <a
-          href="#"
-          class="flex text-gray-600 py-2 hover:bg-red-400 hover:text-white items-center"
-          >Home</a
+        <router-link
+          to="/"
+          class="flex text-gray-600 py-2 pl-10 hover:bg-red-400 hover:text-white items-center"
+          >Home</router-link
+        >
+        <router-link
+          to="/about"
+          class="flex text-gray-600 py-2 pl-10 hover:bg-red-400 hover:text-white items-center"
+          >New</router-link
         >
         <a
-          href="#"
-          class="flex text-gray-600 py-2 hover:bg-red-400 hover:text-white items-center"
-          >New</a
-        >
-        <a
-          href="#"
-          class="flex text-gray-600 py-2 hover:bg-red-400 hover:text-white items-center"
+          class="flex text-gray-600 py-2 pl-10 hover:bg-red-400 hover:text-white items-center"
           >Popular</a
         >
         <a
-          href="#"
-          class="flex text-gray-600 py-2 hover:bg-red-400 hover:text-white items-center"
+          class="flex text-gray-600 py-2 pl-10 hover:bg-red-400 hover:text-white items-center"
           >Trading</a
         >
         <a
-          href="#"
-          class="flex text-gray-600 py-2 hover:bg-red-400 hover:text-white items-center"
+          class="flex text-gray-600 py-2 pl-10 hover:bg-red-400 hover:text-white items-center"
           >Categories</a
         >
       </div>
@@ -85,12 +85,11 @@
 
 <script setup>
 import { ref } from "vue";
+import { RouterLink } from "vue-router";
 
 const isMobileMenuOpen = ref(false);
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
-
-
 </script>
